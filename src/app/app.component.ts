@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { Title } from '@angular/platform-browser';
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
 `
 })
 
