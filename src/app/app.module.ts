@@ -4,9 +4,12 @@ import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+// Feature Modules
+import { HomeModule } from './home/home.module';
+
 // Components
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/containers/home.component';
 import { NotFoundComponent } from './not-found.component';
 
 // Services
@@ -14,23 +17,23 @@ import { RequestOptionsService } from './services/request-options.service';
 
 // Routes
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NotFoundComponent
   ],
   imports: [
     // Angular Modules
     BrowserModule,
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
 
     // Custom Modules
+    HomeModule
   ],
   providers: [
     { provide: RequestOptions, useClass: RequestOptionsService },
