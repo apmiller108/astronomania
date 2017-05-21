@@ -6,7 +6,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss'],
   template: `
     <div>
-      <h1>{{ title }}</h1>
+      <h1 class="title is-1">{{ title }}</h1>
     </div>
 `
 })

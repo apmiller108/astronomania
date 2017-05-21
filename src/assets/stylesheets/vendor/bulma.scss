@@ -1,0 +1,11 @@
+@import '../../../../node_modules/bulma/sass/utilities/initial-variables.sass';
+
+// Customize Bulma colors and fonts http://bulma.io/documentation/overview/variables/
+
+$family-serif: $base-font;
+$family-primary: $family-serif;
+
+@import '../../../../node_modules/bulma/bulma.sass';
+
+
+
