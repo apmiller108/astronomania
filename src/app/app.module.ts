@@ -8,12 +8,7 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 
 // Services
-import { AuthService } from './services/auth.service';
 import { RequestOptionsService } from './services/request-options.service';
-import { ResponseErrorService } from './services/response-error.service';
-
-// Custom Modules
-import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
@@ -26,12 +21,9 @@ import { LoginModule } from './login/login.module';
     RouterModule,
 
     // Custom Modules
-    LoginModule
   ],
   providers: [
-    AuthService,
     { provide: RequestOptions, useClass: RequestOptionsService },
-    { provide: Http, useClass: ResponseErrorService }
   ],
   bootstrap: [AppComponent]
 })

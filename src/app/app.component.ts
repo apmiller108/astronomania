@@ -3,14 +3,15 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
   template: `
     <div>
       <h1>{{ title }}</h1>
     </div>
 `
 })
-export class AppComponent implements OnInit{
+
+export class AppComponent implements OnInit {
   title: string;
 
   constructor( public titleService: Title) {}
