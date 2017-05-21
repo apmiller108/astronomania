@@ -15,6 +15,7 @@ import { Title } from '@angular/platform-browser';
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
 `
 })
 
