@@ -42,3 +42,6 @@ Thumbs.db
 
 #Emacs auto-save file
 .#*
+
+# Ingnore secrets
+/src/environments/secrets.ts

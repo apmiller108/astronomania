@@ -9,7 +9,9 @@ import { HomeModule } from './home/home.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './home/containers/home.component';
+import { NavComponent } from './shared/nav/nav.component';
 import { NotFoundComponent } from './not-found.component';
 
 // Services
@@ -24,6 +26,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
+    NavComponent,
     NotFoundComponent
   ],
   imports: [
