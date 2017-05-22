@@ -5,17 +5,11 @@ import { Title } from '@angular/platform-browser';
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   template: `
-<div class="nav">
-  <div class="nav-left">
-    <div class="nav-item">
-      <i class="fa fa-rocket fa-3x"></i>
-    </div>
-    <div class="nav-item">
-      <h1 class="title is-1">{{ title }}</h1>
-    </div>
-  </div>
-</div>
+<app-nav
+  [title]="title">
+</app-nav>
 <router-outlet></router-outlet>
+<app-footer></app-footer>
 `
 })
 
