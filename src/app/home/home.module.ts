@@ -7,7 +7,8 @@ import { HttpModule } from '@angular/http';
 import { HomeComponent } from './containers/home.component';
 
 // Components
-import { ApodComponent } from './components/apod.component';
+import { ApodComponent } from './components/apod/apod.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 // Services
 import { HomeService } from './home.service';
@@ -18,8 +19,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    ApodComponent
+    ApodComponent,
+    HeroComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
