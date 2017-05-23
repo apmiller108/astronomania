@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { HomeService } from '../home.service';
 import { Apod } from '../models/apod.interface';
 
 @Component({
@@ -16,11 +16,11 @@ import { Apod } from '../models/apod.interface';
 export class HomeComponent implements OnInit {
   apod: Apod;
 
-  constructor(private homeService: HomeService) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.homeService
-      .getApod()
-      .subscribe((data: Apod) => this.apod = data)
+    this.activatedRoute
+      .data
+      .subscribe((data) => this.apod = data.apod)
   }
 }

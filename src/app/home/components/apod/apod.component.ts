@@ -6,7 +6,7 @@ import { Apod } from '../../models/apod.interface';
   styleUrls: ['apod.component.scss'],
   template: `
 <div class="container">
-  <div class="card">
+  <div class="card apod-card">
     <div class="card-image">
       <figure class="image is-2by1">
         <img
