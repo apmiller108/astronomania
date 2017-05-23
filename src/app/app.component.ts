@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   constructor( public titleService: Title) {}
 
   ngOnInit () {
-    this.title = 'NASA Nerd';
+    this.title = 'Astronomania';
     this.titleService.setTitle(this.title);
   }
 }

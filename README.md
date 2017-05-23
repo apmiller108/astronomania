@@ -1,4 +1,4 @@
-# NASANerd
+# Astronomania
 
 It's an Angular app that uses NASA APIs, so we can nerd out on cool space stuff.
 
