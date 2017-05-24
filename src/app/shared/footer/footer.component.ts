@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
   <div class="container">
     <div class="content has-text-centered is-info">
       <p>
-        <strong>NASA Nerd</strong> by <a href="https://www.alex-miller.co">Alex Miller</a>.
+        <strong>Astronomania</strong> by <a href="https://www.alex-miller.co">Alex Miller</a>.
       </p>
       <p>
         It's open source, so contribute!
-        <a class="icon" href="https://github.com/apmiller108/nasa-nerd">
+        <a class="icon" href="https://github.com/apmiller108/astronomania">
           <i class="fa fa-github"></i>
         </a>
       </p>

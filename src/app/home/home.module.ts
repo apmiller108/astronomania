@@ -11,10 +11,15 @@ import { ApodComponent } from './components/apod/apod.component';
 import { HeroComponent } from './components/hero/hero.component';
 
 // Services
-import { HomeService } from './home.service';
+import { HomeService } from './services/home.service';
+import { HomeResolver } from './services/home-resolver.service';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent }
+  {
+    path: 'home',
+    component: HomeComponent,
+    resolve: { apod: HomeResolver}
+  }
 ]
 
 @NgModule({
@@ -29,7 +34,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [
-    HomeService
+    HomeService,
+    HomeResolver
   ]
 })
 

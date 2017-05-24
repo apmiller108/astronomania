@@ -5,9 +5,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import { API_URL } from '../../environments/environment';
-import { API_KEY } from '../../environments/environment';
-import { Apod } from './models/apod.interface';
+import { API_URL } from '../../../environments/environment';
+import { API_KEY } from '../../../environments/environment';
+import { Apod } from '../models/apod.interface';
 
 @Injectable()
 export class HomeService {
