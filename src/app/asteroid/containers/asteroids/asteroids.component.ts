@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AsteroidService } from '../../services/asteroid.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-asteroids',
@@ -14,11 +14,11 @@ import { AsteroidService } from '../../services/asteroid.service';
 
 export class AsteroidsComponent implements OnInit {
   asteroids: any[];
-  constructor(private asteroidService: AsteroidService) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.asteroidService
-      .getAsteroids()
-      .subscribe((data: any[]) => this.asteroids = data)
+    this.activatedRoute
+      .data
+      .subscribe((data) => this.asteroids = data.asteroids)
   }
 }
