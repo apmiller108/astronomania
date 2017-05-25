@@ -11,7 +11,9 @@ import { Component, Input } from '@angular/core';
     </a>
   </div>
   <div class="nav-center">
-    <a class="nav-item is-tab">
+    <a class="nav-item is-tab"
+       routerLink="/asteroids"
+       routerLinkActive="is-active">
       asteriods
     </a>
     <a class="nav-item is-tab">

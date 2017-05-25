@@ -9,6 +9,7 @@ import { AsteroidsComponent } from './containers/asteroids/asteroids.component';
 // Components
 
 // Services
+import { AsteroidService } from './services/asteroid.service';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [
+    AsteroidService
   ]
 })
 
