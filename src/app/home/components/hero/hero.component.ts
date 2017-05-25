@@ -4,7 +4,7 @@ import { Apod } from '../../models/apod.interface';
 @Component({
   selector: 'app-hero',
   template: `
-<section class="hero is-large is-bold">
+<section class="hero is-medium is-bold is-primary">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">Nerd out on cool space stuff</h1>
