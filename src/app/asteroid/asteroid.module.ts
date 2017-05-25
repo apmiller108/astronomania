@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AsteroidsComponent } from './containers/asteroids/asteroids.component';
 
 // Components
+import { AsteroidDetailComponent } from './components/asteroid-detail/asteroid-detail.component';
 
 // Services
 import { AsteroidService } from './services/asteroid.service';
@@ -19,15 +20,20 @@ const routes: Routes = [
       {
         path: '',
         component: AsteroidsComponent,
-        resolve: { asteroids: AsteroidResolver }
-      }
+        resolve: { asteroidsResponse: AsteroidResolver }
+      },
+      // {
+      //   path: ':id',
+      //   component: AsteroidViewerComponent }
+      // }
     ]
   }
 ]
 
 @NgModule({
   declarations: [
-    AsteroidsComponent
+    AsteroidsComponent,
+    AsteroidDetailComponent
   ],
   imports: [
     CommonModule,

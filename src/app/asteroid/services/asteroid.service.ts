@@ -8,7 +8,7 @@ import 'rxjs/add/observable/throw';
 import { API_URL } from '../../../environments/environment';
 import { API_KEY } from '../../../environments/environment';
 
-import { Asteroids } from '../models/asteroids.interface';
+import { AsteroidsResponse } from '../models/asteroids-response.interface';
 
 const apiUrl = `${API_URL}/neo/rest/v1`
 
@@ -16,7 +16,7 @@ const apiUrl = `${API_URL}/neo/rest/v1`
 export class AsteroidService {
   constructor(private http: Http) {}
 
-  getAsteroids(): Observable<Asteroids> {
+  getAsteroids(): Observable<AsteroidsResponse> {
     return this.http
       .get(`${apiUrl}/neo/browse?api_key=${API_KEY}`)
       .map((response: Response) => response.json())

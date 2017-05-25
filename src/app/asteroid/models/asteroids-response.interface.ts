@@ -7,7 +7,7 @@ interface Page {
   number: number;
 }
 
-export interface Asteroids {
+export interface AsteroidsResponse {
   page: Page;
   near_earth_objects: Asteroid[];
 }
