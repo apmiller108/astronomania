@@ -3,6 +3,7 @@ import { Apod } from '../../models/apod.interface';
 
 @Component({
   selector: 'app-hero',
+  styleUrls: ['./hero.component.scss'],
   template: `
 <section class="hero is-medium is-bold is-primary">
   <div class="hero-body">

@@ -3,14 +3,26 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-nav',
   template: `
-<div class="nav">
+<div class="nav has-shadow">
   <div class="nav-left">
-    <div class="nav-item">
+    <a class="nav-item" routerLink="/home">
       <i class="fa fa-rocket fa-3x"></i>
-    </div>
-    <div class="nav-item">
-      <h1 class="title is-1">{{ title }}</h1>
-    </div>
+      <span> {{ title }}</span>
+    </a>
+  </div>
+  <div class="nav-center">
+    <a class="nav-item is-tab">
+      asteriods
+    </a>
+    <a class="nav-item is-tab">
+      mars rover
+    </a>
+    <a class="nav-item is-tab">
+      NASA images and videos
+    </a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-item">sign in</a>
   </div>
 </div>
 `
