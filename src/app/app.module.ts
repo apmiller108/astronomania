@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 // Feature Modules
 import { HomeModule } from './home/home.module';
+import { AsteroidModule } from './asteroid/asteroid.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -37,7 +38,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
 
     // Custom Modules
-    HomeModule
+    HomeModule,
+    AsteroidModule
   ],
   providers: [
     { provide: RequestOptions, useClass: RequestOptionsService },
