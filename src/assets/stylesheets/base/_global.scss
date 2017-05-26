@@ -1,0 +1,12 @@
+.list-container {
+  padding: 30px 0 30px 0;
+}
+.page-content {
+  width: 70%;
+  margin: 0 auto;
+  padding: 30px 0 30px 0;
+}
+.is-disabled {
+  color: $dark-grey;
+  pointer-events: none;
+}

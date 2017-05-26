@@ -1,4 +1,6 @@
+@import '../../../../assets/stylesheets/base/variables';
 .asteroid-detail {
-  width: 70%;
   margin: 0 auto 15px auto;
+  background-color: $dark-grey;
+  color: $white;
 }
