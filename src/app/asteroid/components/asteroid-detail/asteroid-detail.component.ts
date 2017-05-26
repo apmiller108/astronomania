@@ -6,7 +6,8 @@ import { Asteroid } from '../../models/asteroid.interface';
   selector: 'app-asteroid-detail',
   styleUrls: ['asteroid-detail.component.scss'],
   template: `
-<div class="box asteroid-detail">
+<div class="box asteroid-detail"
+     [class.last-item]="index === 19">
   <div class="columns">
     <div class="column is-4">
       {{ detail.name }}
@@ -27,6 +28,5 @@ import { Asteroid } from '../../models/asteroid.interface';
 
 export class AsteroidDetailComponent {
   @Input() detail: Asteroid;
-
-  constructor() {}
+  @Input() index: number;
 }

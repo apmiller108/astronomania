@@ -22,11 +22,17 @@ import { AsteroidService } from '../../services/asteroid.service';
     </app-paginator>
   <div class="list-container">
     <app-asteroid-detail
-      *ngFor="let asteroid of asteroids"
-      [detail]="asteroid">
+      *ngFor="let asteroid of asteroids; let i = index;"
+      [detail]="asteroid"
+      [index]="i">
     </app-asteroid-detail>
   </div>
-  {{ asteroidsResponse | json }}
+  <app-paginator
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    [pageNumbers]="pageNumbers"
+    (page)="getPage($event)">
+    </app-paginator>
 </div>
 `
 })
