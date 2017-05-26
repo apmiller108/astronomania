@@ -8,6 +8,7 @@ import { AsteroidsComponent } from './containers/asteroids/asteroids.component';
 
 // Components
 import { AsteroidDetailComponent } from './components/asteroid-detail/asteroid-detail.component';
+import { PaginatorComponent } from '../shared/paginator/paginator.component';
 
 // Services
 import { AsteroidService } from './services/asteroid.service';
@@ -28,12 +29,13 @@ const routes: Routes = [
       // }
     ]
   }
-]
+];
 
 @NgModule({
   declarations: [
     AsteroidsComponent,
-    AsteroidDetailComponent
+    AsteroidDetailComponent,
+    PaginatorComponent
   ],
   imports: [
     CommonModule,
