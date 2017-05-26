@@ -10,7 +10,7 @@ import { Asteroid } from '../../models/asteroid.interface';
      [class.last-item]="index === 19">
   <div class="columns">
     <div class="column is-4">
-      {{ detail.name }}
+      <a>{{ detail.name }}</a>
     </div>
     <div class="column is-3">
       {{ detail.orbital_data.orbital_period }}
@@ -19,7 +19,10 @@ import { Asteroid } from '../../models/asteroid.interface';
       {{ detail.estimated_diameter.miles.estimated_diameter_max }}
     </div>
     <div class="column is-3">
-      {{ detail.is_potentially_hazardous_asteroid }}
+      <span class="tag is-danger"
+            *ngIf="detail.is_potentially_hazardous_asteroid">
+        Potentially Hazardous
+      </span>
     </div>
   </div>
 </div>

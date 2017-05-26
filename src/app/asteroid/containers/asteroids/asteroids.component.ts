@@ -13,7 +13,7 @@ import { AsteroidService } from '../../services/asteroid.service';
   styleUrls: ['asteroids.component.scss'],
   template: `
 <div class="page-content">
-  <h1 class="title">Asteroids</h1>
+  <h1 class="title">Asteroids (Near Earth Objects)</h1>
   <app-paginator
     [currentPage]="currentPage"
     [totalPages]="totalPages"
