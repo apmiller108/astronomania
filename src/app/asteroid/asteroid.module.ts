@@ -9,12 +9,14 @@ import { AsteroidViewerComponent } from './containers/asteroid-viewer/asteroid-v
 
 // Components
 import { AsteroidDetailComponent } from './components/asteroid-detail/asteroid-detail.component';
+import { NeoStatsComponent } from './components/neo-stats/neo-stats.component';
 import { PaginatorComponent } from '../shared/paginator/paginator.component';
 
 // Services
 import { AsteroidService } from './services/asteroid.service';
 import { AsteroidsResolver } from './services/asteroids-resolver.service';
 import { AsteroidResolver } from './services/asteroid-resolver.service';
+import { NeoStatsResolver } from './services/neo-stats-resolver.service';
 
 const routes: Routes = [
   {
@@ -23,7 +25,10 @@ const routes: Routes = [
       {
         path: '',
         component: AsteroidsComponent,
-        resolve: { asteroidsResponse: AsteroidsResolver }
+        resolve: {
+          asteroidsResponse: AsteroidsResolver,
+          neoStats: NeoStatsResolver
+        }
       },
       {
         path: ':id',
@@ -39,6 +44,7 @@ const routes: Routes = [
     AsteroidsComponent,
     AsteroidDetailComponent,
     AsteroidViewerComponent,
+    NeoStatsComponent,
     PaginatorComponent
   ],
   imports: [
@@ -49,7 +55,8 @@ const routes: Routes = [
   providers: [
     AsteroidService,
     AsteroidResolver,
-    AsteroidsResolver
+    AsteroidsResolver,
+    NeoStatsResolver
   ]
 })
 

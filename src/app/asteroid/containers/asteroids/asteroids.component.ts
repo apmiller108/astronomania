@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 // Interfaces
 import { AsteroidsResponse } from '../../models/asteroids-response.interface';
 import { Asteroid } from '../../models/asteroid.interface';
+import { NeoStats } from '../../models/neo-stats.interface';
 
 // Services
 import { AsteroidService } from '../../services/asteroid.service';
@@ -14,6 +15,9 @@ import { AsteroidService } from '../../services/asteroid.service';
   template: `
 <div class="page-content">
   <h1 class="title">Asteroids (Near Earth Objects)</h1>
+  <app-neo-stats
+    [neoStats]="neoStats">
+  </app-neo-stats>
   <app-paginator
     [currentPage]="currentPage"
     [totalPages]="totalPages"
@@ -41,9 +45,10 @@ import { AsteroidService } from '../../services/asteroid.service';
 export class AsteroidsComponent implements OnInit {
   asteroidsResponse: AsteroidsResponse;
   asteroids: Asteroid[];
-  pageNumbers: number[];
   currentPage: number;
+  pageNumbers: number[];
   totalPages: number;
+  neoStats: NeoStats;
   constructor(private activatedRoute: ActivatedRoute,
               private asteroidService: AsteroidService,
               private router: Router) {}
@@ -52,10 +57,11 @@ export class AsteroidsComponent implements OnInit {
     this.activatedRoute.data
       .subscribe((data) => {
         this.asteroidsResponse = data.asteroidsResponse;
-        this.asteroids = this.asteroidsResponse.near_earth_objects;
-        this.currentPage = this.asteroidsResponse.page.number;
-        this.totalPages = this.asteroidsResponse.page.total_pages;
+        this.asteroids = data.asteroidsResponse.near_earth_objects;
+        this.currentPage = data.asteroidsResponse.page.number;
+        this.totalPages = data.asteroidsResponse.page.total_pages;
         this.pageNumbers = this.calculatePageRange(this.currentPage);
+        this.neoStats = data.neoStats;
       });
   }
 

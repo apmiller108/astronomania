@@ -21,19 +21,26 @@ export class AsteroidService {
       .get(`${apiUrl}/neo/browse?api_key=${API_KEY}`)
       .map((response: Response) => response.json())
       .catch((error: any) => Observable.throw(error.json()));
-        }
+  }
 
   getPage(page): Observable<AsteroidsResponse> {
     return this.http
       .get(`${apiUrl}/neo/browse?page=${page}&size=20&api_key=${API_KEY}`)
       .map((response: Response) => response.json())
       .catch((error: any) => Observable.throw(error.json()));
-        }
+  }
 
   getAsteroid(asteroid_id) {
     return this.http
       .get(`${apiUrl}/neo/${asteroid_id}?api_key=${API_KEY}`)
       .map((response: Response) => response.json())
-      .catch((error: any) => Observable.throw(error.json));
+      .catch((error: any) => Observable.throw(error.json()));
+  }
+
+  getNeoStats() {
+    return this.http
+      .get(`${apiUrl}/stats?api_key=${API_KEY}`)
+      .map((response: Response) => response.json())
+      .catch((error: any) => Observable.throw(error.json()));
   }
 }
