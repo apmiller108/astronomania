@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core';
     <a class="nav-item is-tab"
        routerLink="/asteroids"
        routerLinkActive="is-active">
-      asteriods
+      asteroids
     </a>
     <a class="nav-item is-tab">
       mars rover

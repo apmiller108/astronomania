@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 // Interfaces
 import { Asteroid } from '../../models/asteroid.interface';
@@ -6,54 +7,20 @@ import { Asteroid } from '../../models/asteroid.interface';
 @Component({
   selector: 'app-asteroid-view',
   styleUrls: ['asteroid-view.component.scss'],
-  template: `
-<div class="box">
-  <h1 class="title is-1">{{ asteroid.name }}</h1>
-  <p class="subtitle is-5">
-    Reference ID: {{ asteroid.neo_reference_id }}
-  </p>
-  <div class="columns">
-    <div class="column is-6">
-      <div class="box">
-        <p class="title is-6">
-          Estimated Diameter
-        </p>
-        <div class="tabs is-left is-boxed">
-          <ul>
-            <li *ngFor="let unit of distanceUnits"
-                (click)="activeDistanceUnit = unit"
-                [class.is-active]="activeDistanceUnit === unit">
-              <a>{{ unit }}</a>
-            </li>
-          </ul>
-        </div>
-        <div *ngFor="let unit of distanceUnits">
-          <div class="columns"
-               [ngClass]="distanceUnitClasses(unit)"
-               *ngIf="activeDistanceUnit === unit">
-            <div class="column is-6">
-              <p>
-                Minimum: {{ asteroid.estimated_diameter[unit].estimated_diameter_min }}
-              </p>
-            </div>
-            <div class="column is-6">
-              <p>
-                Maximum: {{ asteroid.estimated_diameter[unit].estimated_diameter_max }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`
+  templateUrl: './asteroid-view.component.html'
 })
 
-export class AsteroidViewComponent {
+export class AsteroidViewComponent implements OnInit {
   distanceUnits: string[] = ['kilometers', 'meters', 'miles', 'feet'];
   activeDistanceUnit: string = 'kilometers';
+  jplUrl: SafeUrl;
   @Input() asteroid: Asteroid;
+
+  constructor(private sanitizer: DomSanitizer) {}
+
+  ngOnInit() {
+    this.jplUrl = this.sanitizer.bypassSecurityTrustUrl(this.asteroid.nasa_jpl_url);
+  }
 
   distanceUnitClasses(unit) {
     return {
