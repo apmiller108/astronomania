@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 // Containers
 import { AsteroidsComponent } from './containers/asteroids/asteroids.component';
+import { AsteroidViewerComponent } from './containers/asteroid-viewer/asteroid-viewer.component';
 
 // Components
 import { AsteroidDetailComponent } from './components/asteroid-detail/asteroid-detail.component';
@@ -12,6 +13,7 @@ import { PaginatorComponent } from '../shared/paginator/paginator.component';
 
 // Services
 import { AsteroidService } from './services/asteroid.service';
+import { AsteroidsResolver } from './services/asteroids-resolver.service';
 import { AsteroidResolver } from './services/asteroid-resolver.service';
 
 const routes: Routes = [
@@ -21,12 +23,13 @@ const routes: Routes = [
       {
         path: '',
         component: AsteroidsComponent,
-        resolve: { asteroidsResponse: AsteroidResolver }
+        resolve: { asteroidsResponse: AsteroidsResolver }
       },
-      // {
-      //   path: ':id',
-      //   component: AsteroidViewerComponent }
-      // }
+      {
+        path: ':id',
+        component: AsteroidViewerComponent,
+        resolve: { asteroid: AsteroidResolver }
+      }
     ]
   }
 ];
@@ -35,6 +38,7 @@ const routes: Routes = [
   declarations: [
     AsteroidsComponent,
     AsteroidDetailComponent,
+    AsteroidViewerComponent,
     PaginatorComponent
   ],
   imports: [
@@ -44,7 +48,8 @@ const routes: Routes = [
   ],
   providers: [
     AsteroidService,
-    AsteroidResolver
+    AsteroidResolver,
+    AsteroidsResolver
   ]
 })
 

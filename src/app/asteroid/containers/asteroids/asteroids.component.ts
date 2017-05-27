@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Interfaces
 import { AsteroidsResponse } from '../../models/asteroids-response.interface';
@@ -24,7 +24,8 @@ import { AsteroidService } from '../../services/asteroid.service';
     <app-asteroid-detail
       *ngFor="let asteroid of asteroids; let i = index;"
       [detail]="asteroid"
-      [index]="i">
+      [index]="i"
+      (view)="viewAsteroid($event)">
     </app-asteroid-detail>
   </div>
   <app-paginator
@@ -44,11 +45,11 @@ export class AsteroidsComponent implements OnInit {
   currentPage: number;
   totalPages: number;
   constructor(private activatedRoute: ActivatedRoute,
-              private asteroidService: AsteroidService) {}
+              private asteroidService: AsteroidService,
+              private router: Router) {}
 
   ngOnInit() {
-    this.activatedRoute
-      .data
+    this.activatedRoute.data
       .subscribe((data) => {
         this.asteroidsResponse = data.asteroidsResponse;
         this.asteroids = this.asteroidsResponse.near_earth_objects;
@@ -73,5 +74,9 @@ export class AsteroidsComponent implements OnInit {
 
   calculatePageRange(currentPage: number): number[] {
     return [currentPage, (currentPage + 1), (currentPage + 2)];
+  }
+
+  viewAsteroid(asteroid_id) {
+    this.router.navigate(['asteroids', asteroid_id]);
   }
 }
