@@ -14,6 +14,7 @@ import { AsteroidService } from '../../services/asteroid.service';
   styleUrls: ['asteroids.component.scss'],
   template: `
 <div class="page-content">
+  <div class="box">
   <h1 class="title">Asteroids (Near Earth Objects)</h1>
   <app-neo-stats
     [neoStats]="neoStats">
@@ -37,7 +38,8 @@ import { AsteroidService } from '../../services/asteroid.service';
     [totalPages]="totalPages"
     [pageNumbers]="pageNumbers"
     (page)="getPage($event)">
-    </app-paginator>
+  </app-paginator>
+  </div>
 </div>
 `
 })

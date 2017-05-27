@@ -11,6 +11,7 @@ import { AsteroidViewerComponent } from './containers/asteroid-viewer/asteroid-v
 import { AsteroidDetailComponent } from './components/asteroid-detail/asteroid-detail.component';
 import { NeoStatsComponent } from './components/neo-stats/neo-stats.component';
 import { PaginatorComponent } from '../shared/paginator/paginator.component';
+import { AsteroidViewComponent } from './components/asteroid-view/asteroid-view.component';
 
 // Services
 import { AsteroidService } from './services/asteroid.service';
@@ -44,6 +45,7 @@ const routes: Routes = [
     AsteroidsComponent,
     AsteroidDetailComponent,
     AsteroidViewerComponent,
+    AsteroidViewComponent,
     NeoStatsComponent,
     PaginatorComponent
   ],

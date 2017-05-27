@@ -8,10 +8,9 @@ import { Asteroid } from '../../models/asteroid.interface';
   selector: 'app-asteroid-viewer',
   template: `
 <div class="page-content">
-  <h1 class="title">{{ asteroid.name }}</h1>
-</div>
-<div>
-  {{ asteroid | json }}
+  <app-asteroid-view
+    [asteroid]="asteroid">
+  </app-asteroid-view>
 </div>
 `
 })
