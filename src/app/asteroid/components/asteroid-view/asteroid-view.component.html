@@ -58,6 +58,37 @@
     </div>
   </div>
   <div class="columns">
+    <div class="column is-12">
+      <div class="box">
+        <p class="title is-6">Orbital Data</p>
+        <div class="columns">
+          <div class="column is-6">
+            <div class="columns is-mobile orbital-data-columns"
+                 *ngFor="let key of firstHalfOrbitalDataKeys()">
+              <div class="column is-6">
+                {{ key.split('_').join(' ') | titlecase }}
+              </div>
+              <div class="column is-6">
+                {{ asteroid.orbital_data[key] }}
+              </div>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="columns is-mobile orbital-data-columns"
+                 *ngFor="let key of secondHalfOrbitalDataKeys()">
+              <div class="column is-6">
+                {{ key.split('_').join(' ') | titlecase }}
+              </div>
+              <div class="column is-6">
+                {{ asteroid.orbital_data[key] }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
     <div class="column has-text-centered">
       <a [href]="jplUrl">View on NASA JPL</a>
     </div>

@@ -14,12 +14,14 @@ export class AsteroidViewComponent implements OnInit {
   distanceUnits: string[] = ['kilometers', 'meters', 'miles', 'feet'];
   activeDistanceUnit: string = 'kilometers';
   jplUrl: SafeUrl;
+  orbitalDataKeys: string[];
   @Input() asteroid: Asteroid;
 
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.jplUrl = this.sanitizer.bypassSecurityTrustUrl(this.asteroid.nasa_jpl_url);
+    this.orbitalDataKeys = Object.keys(this.asteroid.orbital_data);
   }
 
   distanceUnitClasses(unit) {
@@ -29,5 +31,19 @@ export class AsteroidViewComponent implements OnInit {
       'miles': unit === 'miles',
       'feet': unit === 'feet',
     };
+  }
+
+  firstHalfOrbitalDataKeys() {
+    const sliceEnd = Math.floor(this.orbitalDataKeys.length / 2);
+    return this.orbitalDataKeys.slice(0, sliceEnd);
+  }
+
+  secondHalfOrbitalDataKeys() {
+    const sliceStart = Math.floor(this.orbitalDataKeys.length / 2);
+    return this.orbitalDataKeys.slice(sliceStart,
+                                      this.orbitalDataKeys.length);
+  }
+
+  formatOrbitalDataLabel(key) {
   }
 }
