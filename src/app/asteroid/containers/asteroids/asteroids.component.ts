@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Interfaces
 import { AsteroidsResponse } from '../../models/asteroids-response.interface';
 import { Asteroid } from '../../models/asteroid.interface';
+import { NeoStats } from '../../models/neo-stats.interface';
 
 // Services
 import { AsteroidService } from '../../services/asteroid.service';
@@ -13,7 +14,11 @@ import { AsteroidService } from '../../services/asteroid.service';
   styleUrls: ['asteroids.component.scss'],
   template: `
 <div class="page-content">
-  <h1 class="title">Asteroids</h1>
+  <div class="box">
+  <h1 class="title">Asteroids (Near Earth Objects)</h1>
+  <app-neo-stats
+    [neoStats]="neoStats">
+  </app-neo-stats>
   <app-paginator
     [currentPage]="currentPage"
     [totalPages]="totalPages"
@@ -24,7 +29,8 @@ import { AsteroidService } from '../../services/asteroid.service';
     <app-asteroid-detail
       *ngFor="let asteroid of asteroids; let i = index;"
       [detail]="asteroid"
-      [index]="i">
+      [index]="i"
+      (view)="viewAsteroid($event)">
     </app-asteroid-detail>
   </div>
   <app-paginator
@@ -32,7 +38,8 @@ import { AsteroidService } from '../../services/asteroid.service';
     [totalPages]="totalPages"
     [pageNumbers]="pageNumbers"
     (page)="getPage($event)">
-    </app-paginator>
+  </app-paginator>
+  </div>
 </div>
 `
 })
@@ -40,21 +47,23 @@ import { AsteroidService } from '../../services/asteroid.service';
 export class AsteroidsComponent implements OnInit {
   asteroidsResponse: AsteroidsResponse;
   asteroids: Asteroid[];
-  pageNumbers: number[];
   currentPage: number;
+  pageNumbers: number[];
   totalPages: number;
+  neoStats: NeoStats;
   constructor(private activatedRoute: ActivatedRoute,
-              private asteroidService: AsteroidService) {}
+              private asteroidService: AsteroidService,
+              private router: Router) {}
 
   ngOnInit() {
-    this.activatedRoute
-      .data
+    this.activatedRoute.data
       .subscribe((data) => {
         this.asteroidsResponse = data.asteroidsResponse;
-        this.asteroids = this.asteroidsResponse.near_earth_objects;
-        this.currentPage = this.asteroidsResponse.page.number;
-        this.totalPages = this.asteroidsResponse.page.total_pages;
+        this.asteroids = data.asteroidsResponse.near_earth_objects;
+        this.currentPage = data.asteroidsResponse.page.number;
+        this.totalPages = data.asteroidsResponse.page.total_pages;
         this.pageNumbers = this.calculatePageRange(this.currentPage);
+        this.neoStats = data.neoStats;
       });
   }
 
@@ -73,5 +82,9 @@ export class AsteroidsComponent implements OnInit {
 
   calculatePageRange(currentPage: number): number[] {
     return [currentPage, (currentPage + 1), (currentPage + 2)];
+  }
+
+  viewAsteroid(asteroid_id) {
+    this.router.navigate(['asteroids', asteroid_id]);
   }
 }
