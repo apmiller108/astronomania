@@ -43,7 +43,4 @@ export class AsteroidViewComponent implements OnInit {
     return this.orbitalDataKeys.slice(sliceStart,
                                       this.orbitalDataKeys.length);
   }
-
-  formatOrbitalDataLabel(key) {
-  }
 }

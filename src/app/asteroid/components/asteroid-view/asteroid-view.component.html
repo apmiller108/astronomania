@@ -14,9 +14,17 @@
     </div>
   </div>
   <div class="columns">
-    <div class="column is-6">
+    <div class="column is-12">
       <div class="box">
-        <p class="title is-5">Estimated Diameter</p>
+        <p class="title is-5">Physical Characteristics</p>
+        <div class="columns">
+          <div class="column">
+            <p>
+              H (absolute magnititude): {{ asteroid.absolute_magnitude_h }}
+            </p>
+          </div>
+        </div>
+        <p>Estimated Diameter:</p>
         <div class="tabs is-left is-boxed">
           <ul>
             <li *ngFor="let unit of distanceUnits"
@@ -40,18 +48,6 @@
                 Maximum: {{ asteroid.estimated_diameter[unit].estimated_diameter_max }}
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="column is-6">
-      <div class="box">
-        <p class="title is-5">General Info</p>
-        <div class="columns">
-          <div class="column">
-            <p>
-              H (absolute magnititude): {{ asteroid.absolute_magnitude_h }}
-            </p>
           </div>
         </div>
       </div>
@@ -85,6 +81,62 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column is-12">
+      <div class="box">
+        <p class="title is-5">Close Approaches</p>
+        <ul>
+          <li *ngFor="let approach of asteroid.close_approach_data">
+            <p class="title is-5">
+              {{ approach.close_approach_date | date }}
+            </p>
+            <div class="container is-fluid close-approach-container">
+              <div class="columns">
+                <div class="column">
+                  Orbiting Body: {{ approach.orbiting_body }}
+                </div>
+              </div>
+              <div class="columns">
+                <div class="column is-12">
+                  Relative Velocity:
+                  <div class="columns">
+                    <div class="column">
+                      {{ approach.relative_velocity.kilometers_per_second }} km/s
+                    </div>
+                    <div class="column">
+                      {{ approach.relative_velocity.kilometers_per_hour }} km/h
+                    </div>
+                    <div class="column">
+                      {{ approach.relative_velocity.miles_per_hour }} mi/h
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="columns">
+                <div class="column is-12">
+                  Miss Distance:
+                  <div class="columns">
+                    <div class="column">
+                      {{ approach.miss_distance.astronomical }} AU
+                    </div>
+                    <div class="column">
+                      {{ approach.miss_distance.lunar }} lunar
+                    </div>
+                    <div class="column">
+                      {{ approach.miss_distance.kilometers }} km
+                    </div>
+                    <div class="column">
+                      {{ approach.miss_distance.miles }} mi
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
