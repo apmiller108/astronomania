@@ -20,7 +20,7 @@ const routes: Routes = [
     component: HomeComponent,
     resolve: { apod: HomeResolver}
   }
-]
+];
 
 @NgModule({
   declarations: [

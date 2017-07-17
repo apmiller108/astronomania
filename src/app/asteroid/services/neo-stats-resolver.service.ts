@@ -8,12 +8,12 @@ import { AsteroidService } from './asteroid.service';
 // Interfaces
 import { NeoStats } from '../models/neo-stats.interface';
 
-@Injectable()
-export class NeoStatsResolver implements Resolve<any> {
-  constructor(private service: AsteroidService) {}
+// @Injectable()
+// export class NeoStatsResolver implements Resolve<any> {
+//   constructor(private service: AsteroidService) {}
 
-  resolve(): Observable<NeoStats> {
-    return this.service.getNeoStats();
-  }
-}
+//   resolve(): Observable<NeoStats> {
+//     return this.service.getNeoStats();
+//   }
+// }
 

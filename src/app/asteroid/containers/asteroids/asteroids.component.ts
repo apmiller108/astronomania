@@ -58,13 +58,21 @@ export class AsteroidsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data
       .subscribe((data) => {
-        this.asteroidsResponse = data.asteroidsResponse;
-        this.asteroids = data.asteroidsResponse.near_earth_objects;
-        this.currentPage = data.asteroidsResponse.page.number;
-        this.totalPages = data.asteroidsResponse.page.total_pages;
+        this.asteroidsResponse = data.asteroidsResponse
+        this.asteroids = data.asteroidsResponse.data
+        this.currentPage = data.asteroidsResponse.meta.pagination.page_number;
+        this.totalPages = data.asteroidsResponse.meta.pagination.total_pages;
         this.pageNumbers = this.calculatePageRange(this.currentPage);
-        this.neoStats = data.neoStats;
       });
+
+    // TODO: refactor to use resolve when API is ready
+      this.neoStats = {
+        near_earth_object_count: 999,
+        close_approach_count: 999,
+        last_updated: '1-1-1999',
+        source: 'source',
+        nasa_jpl_url: 'https://www.jpl.nasa.gov/'
+      };
   }
 
   getPage(page: number): void {

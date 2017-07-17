@@ -15,8 +15,8 @@ export class HomeService {
 
   getApod(): Observable<Apod> {
     return this.http
-      .get(`${API_URL}/planetary/apod?api_key=${API_KEY}`)
+      .get(`https://api.nasa.gov//planetary/apod?api_key=${API_KEY}`)
       .map((response: Response) => response.json())
-      .catch((error: any) => Observable.throw(error.json()))
+      .catch((error: any) => Observable.throw(error.json()));
   }
 }
