@@ -1,10 +1,11 @@
 @import '../../../../assets/stylesheets/base/variables';
+
 .asteroid-detail {
-  margin: 0 auto 20px auto;
-  padding: 0 20px 0 20px;
   background-color: $dark-grey;
   color: $white;
   cursor: pointer;
+  margin: 0 auto 20px auto;
+  padding: 0 20px 0 20px;
 }
 .last-item {
   margin-bottom: 0;

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Asteroid } from '../../models/asteroid.interface';
+import { AsteroidObject } from '../../models/asteroid.interface';
 
 @Component({
   selector: 'app-asteroid-detail',
@@ -8,23 +8,23 @@ import { Asteroid } from '../../models/asteroid.interface';
   template: `
 <div class="box asteroid-detail"
      [class.last-item]="index === 19"
-     (click)="viewAsteroid(detail.neo_reference_id)">
+     (click)="viewAsteroid(detail.id)">
   <div class="columns">
     <div class="column is-4">
       <p class="heading">name</p>
-      <p>{{ detail.name }}</p>
+      <p>{{ detail.attributes.name }}</p>
     </div>
     <div class="column is-3">
       <p class="heading">neo id</p>
-      <p>{{ detail.neo_reference_id }}</p>
+      <p>{{ detail.id }}</p>
     </div>
     <div class="column is-3">
       <p class="heading">Est. Diameter Max</p>
-      <p>{{ detail.estimated_diameter.miles.estimated_diameter_max }} mi.</p>
+      <p>{{ detail.attributes.estimated_diameter.miles.estimated_diameter_max }} mi.</p>
     </div>
     <div class="level">
       <span class="level-item tag is-danger"
-            *ngIf="detail.is_potentially_hazardous_asteroid">
+            *ngIf="detail.attributes.is_potentially_hazardous_asteroid">
         Hazardous
       </span>
     </div>
@@ -34,7 +34,7 @@ import { Asteroid } from '../../models/asteroid.interface';
 })
 
 export class AsteroidDetailComponent {
-  @Input() detail: Asteroid;
+  @Input() detail: AsteroidObject;
   @Input() index: number;
   @Output() view: EventEmitter<string> = new EventEmitter();
 

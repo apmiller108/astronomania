@@ -17,7 +17,7 @@ import { AsteroidViewComponent } from './components/asteroid-view/asteroid-view.
 import { AsteroidService } from './services/asteroid.service';
 import { AsteroidsResolver } from './services/asteroids-resolver.service';
 import { AsteroidResolver } from './services/asteroid-resolver.service';
-import { NeoStatsResolver } from './services/neo-stats-resolver.service';
+// import { NeoStatsResolver } from './services/neo-stats-resolver.service';
 
 const routes: Routes = [
   {
@@ -27,8 +27,8 @@ const routes: Routes = [
         path: '',
         component: AsteroidsComponent,
         resolve: {
-          asteroidsResponse: AsteroidsResolver,
-          neoStats: NeoStatsResolver
+          asteroidsResponse: AsteroidsResolver
+          // neoStats: NeoStatsResolver
         }
       },
       {
@@ -57,8 +57,8 @@ const routes: Routes = [
   providers: [
     AsteroidService,
     AsteroidResolver,
-    AsteroidsResolver,
-    NeoStatsResolver
+    AsteroidsResolver
+    // NeoStatsResolver
   ]
 })
 

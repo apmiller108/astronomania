@@ -7,5 +7,5 @@ export const environment = {
   production: false,
 };
 
-export const API_URL = 'https://api.nasa.gov';
-export const API_KEY = new Secrets().apiKey || 'DEMO_KEY'
+export const API_URL = 'https://astronomania-api-production.herokuapp.com';
+export const API_KEY = new Secrets().apiKey || 'DEMO_KEY';

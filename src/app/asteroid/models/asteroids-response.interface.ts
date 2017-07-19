@@ -1,13 +1,23 @@
-import { Asteroid } from './asteroid.interface';
+import { AsteroidObject } from './asteroid.interface';
 
-interface Page {
+interface Meta {
+  pagination: Pagination;
+}
+interface Pagination {
+  page_number: number;
   size: number;
-  total_elements: number;
+  total_records: number;
   total_pages: number;
-  number: number;
+  links: Links;
+}
+
+interface Links {
+  prev: string;
+  self: string;
+  next: string;
 }
 
 export interface AsteroidsResponse {
-  page: Page;
-  near_earth_objects: Asteroid[];
+  meta: Meta;
+  data: AsteroidObject[];
 }
