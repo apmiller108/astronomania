@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 // Interfaces
 import { AsteroidsResponse } from '../../models/asteroids-response.interface';
 import { Asteroid } from '../../models/asteroid.interface';
+import { AsteroidObject } from '../../models/asteroid.interface';
 import { NeoStats } from '../../models/neo-stats.interface';
 
 // Services
@@ -46,7 +47,7 @@ import { AsteroidService } from '../../services/asteroid.service';
 
 export class AsteroidsComponent implements OnInit {
   asteroidsResponse: AsteroidsResponse;
-  asteroids: Asteroid[];
+  asteroids: AsteroidObject[];
   currentPage: number;
   pageNumbers: number[];
   totalPages: number;
@@ -58,7 +59,7 @@ export class AsteroidsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data
       .subscribe((data) => {
-        this.asteroidsResponse = data.asteroidsResponse
+        this.asteroidsResponse = data.asteroidsResponse;
         this.asteroids = data.asteroidsResponse.data
         this.currentPage = data.asteroidsResponse.meta.pagination.page_number;
         this.totalPages = data.asteroidsResponse.meta.pagination.total_pages;
@@ -80,10 +81,10 @@ export class AsteroidsComponent implements OnInit {
       this.asteroidService.getPage(page)
         .subscribe((data) => {
           this.asteroidsResponse = data;
-          this.asteroids = data.near_earth_objects;
-          this.currentPage = data.page.number;
-          this.totalPages = data.page.total_pages;
-          this.pageNumbers = this.calculatePageRange(data.page.number);
+          this.asteroids = data.data;
+          this.currentPage = data.meta.pagination.page_number;
+          this.totalPages = data.meta.pagination.total_pages;
+          this.pageNumbers = this.calculatePageRange(data.meta.pagination.page_number);
         });
     }
   }

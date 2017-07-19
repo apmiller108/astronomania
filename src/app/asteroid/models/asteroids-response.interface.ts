@@ -1,10 +1,10 @@
-import { Asteroid } from './asteroid.interface';
+import { AsteroidObject } from './asteroid.interface';
 
 interface Meta {
   pagination: Pagination;
 }
 interface Pagination {
-  page_number: string;
+  page_number: number;
   size: number;
   total_records: number;
   total_pages: number;
@@ -19,5 +19,5 @@ interface Links {
 
 export interface AsteroidsResponse {
   meta: Meta;
-  data: Asteroid[];
+  data: AsteroidObject[];
 }

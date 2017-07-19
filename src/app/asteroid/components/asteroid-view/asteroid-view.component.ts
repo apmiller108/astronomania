@@ -20,8 +20,12 @@ export class AsteroidViewComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.jplUrl = this.sanitizer.bypassSecurityTrustUrl(this.asteroid.nasa_jpl_url);
-    this.orbitalDataKeys = Object.keys(this.asteroid.orbital_data);
+    this.jplUrl = this.sanitizer.bypassSecurityTrustUrl(
+      this.asteroid.data.attributes.nasa_jpl_url
+    );
+    this.orbitalDataKeys = Object.keys(
+      this.asteroid.data.attributes.orbital_data
+    );
   }
 
   distanceUnitClasses(unit) {

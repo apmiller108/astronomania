@@ -51,13 +51,25 @@ interface OrbitalData {
   equinox: string;
 }
 
-export interface Asteroid {
+export interface AsteroidAttributes {
   neo_reference_id: string;
   name: string;
   nasa_jpl_url: string;
   absolute_magnitude_h: number;
   estimated_diameter: EstimatedDiameter;
   is_potentially_hazardous_asteroid: boolean;
-  close_approach_data: CloseApproachData[];
+  close_approaches: CloseApproachData[];
   orbital_data: OrbitalData;
 }
+
+export interface AsteroidObject {
+  id: string;
+  type: string;
+  attributes: AsteroidAttributes;
+}
+
+export interface Asteroid {
+  data: AsteroidObject;
+}
+
+
