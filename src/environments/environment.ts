@@ -8,4 +8,4 @@ export const environment = {
 };
 
 export const API_URL = 'https://astronomania-api-production.herokuapp.com';
-export const API_KEY = new Secrets().apiKey || 'DEMO_KEY';
+export const EXAMPLE = new Secrets().exampleSecret;

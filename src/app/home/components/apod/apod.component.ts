@@ -10,16 +10,16 @@ import { Apod } from '../../models/apod.interface';
     <div class="card-image">
       <figure class="image is-2by1">
         <img
-          *ngIf="detail?.hdurl"
-          [alt]="detail?.title"
-          [src]="detail?.url"/>
+          *ngIf="detail.data.attributes?.hdurl"
+          [alt]="detail.data.attributes?.title"
+          [src]="detail.data.attributes?.url"/>
       </figure>
     </div>
     <div class="card-content">
       <div class="content">
-        <h3 class="title">{{ detail?.title }}</h3>
-        <p>{{ detail?.explanation }}</p>
-        <small>{{ detail?.date }}</small>
+        <h3 class="title">{{ detail.data.attributes?.title }}</h3>
+        <p>{{ detail.data.attributes?.explanation }}</p>
+        <small>{{ detail.data.attributes?.date }}</small>
       </div>
     </div>
   </div>

@@ -21,6 +21,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute
       .data
-      .subscribe((data) => this.apod = data.apod)
+      .subscribe((data) => this.apod = data.apod);
   }
 }

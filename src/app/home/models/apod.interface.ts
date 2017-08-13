@@ -1,4 +1,10 @@
-export interface Apod {
+interface ApodData {
+  id: string;
+  type: string;
+  attributes: ApodAttributes;
+}
+
+interface ApodAttributes {
   date: string;
   explanation: string;
   hdurl: string;
@@ -6,4 +12,8 @@ export interface Apod {
   service_version: string;
   title: string;
   url: string;
+}
+
+export interface Apod {
+  data: ApodData;
 }

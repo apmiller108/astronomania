@@ -6,7 +6,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import { API_URL } from '../../../environments/environment';
-import { API_KEY } from '../../../environments/environment';
 import { Apod } from '../models/apod.interface';
 
 @Injectable()
@@ -15,7 +14,7 @@ export class HomeService {
 
   getApod(): Observable<Apod> {
     return this.http
-      .get(`https://api.nasa.gov//planetary/apod?api_key=${API_KEY}`)
+      .get(`${API_URL}/apod`)
       .map((response: Response) => response.json())
       .catch((error: any) => Observable.throw(error.json()));
   }
