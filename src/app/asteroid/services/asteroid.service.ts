@@ -35,9 +35,9 @@ export class AsteroidService {
   }
 
   getNeoStats() {
-    // return this.http
-    //   .get(`${apiUrl}/stats?api_key=${API_KEY}`)
-    //   .map((response: Response) => response.json())
-    //   .catch((error: any) => Observable.throw(error.json()));
+    return this.http
+      .get(`${API_URL}/asteroids/stats`)
+      .map((response: Response) => response.json())
+      .catch((error: any) => Observable.throw(error.json()));
   }
 }

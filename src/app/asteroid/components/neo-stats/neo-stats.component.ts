@@ -8,9 +8,9 @@ import { NeoStats } from '../../models/neo-stats.interface';
   styleUrls: ['neo-stats.component.scss'],
   template: `
 <div class="columns neo-source-columns">
-  <div class="column is-4">
+  <div class="column is-12">
     <small>
-      {{ neoStats.source }}
+      {{ neoStats.data.attributes.source }}
     </small>
   </div>
 </div>
@@ -21,7 +21,7 @@ import { NeoStats } from '../../models/neo-stats.interface';
         Near Earth Objects
       </p>
       <p class="title">
-        {{ neoStats.near_earth_object_count }}
+        {{ neoStats.data.attributes.near_earth_object_count }}
       </p>
     </div>
   </div>
@@ -31,7 +31,7 @@ import { NeoStats } from '../../models/neo-stats.interface';
         Close Approaches
       </p>
       <p class="title">
-        {{ neoStats.close_approach_count }}
+        {{ neoStats.data.attributes.close_approach_count }}
       </p>
     </div>
   </div>
@@ -41,7 +41,7 @@ import { NeoStats } from '../../models/neo-stats.interface';
         Last Updated
       </p>
       <p class="title">
-        {{ neoStats.last_updated }}
+        {{ neoStats.data.attributes.last_updated | date: 'short' }}
       </p>
     </div>
   </div>
