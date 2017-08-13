@@ -1,14 +1,14 @@
 <div class="box">
   <div class="columns">
     <div class="column is-8">
-      <h1 class="title is-1">{{ asteroid.name }}</h1>
+      <h1 class="title is-1">{{ asteroid.data.attributes.name }}</h1>
       <p class="subtitle is-5">
-        Reference ID: {{ asteroid.neo_reference_id }}
+        Reference ID: {{ asteroid.data.attributes.neo_reference_id }}
       </p>
     </div>
     <div class="column is-4">
       <div class="level hazardous-asteroid-level"
-           *ngIf="asteroid.is_potentially_hazardous_asteroid">
+           *ngIf="asteroid.data.attributes.is_potentially_hazardous_asteroid">
         <span class="level-item tag is-danger">Potentially Hazardous</span>
       </div>
     </div>
@@ -20,7 +20,7 @@
         <div class="columns">
           <div class="column">
             <p>
-              H (absolute magnititude): {{ asteroid.absolute_magnitude_h }}
+              H (absolute magnititude): {{ asteroid.data.attributes.absolute_magnitude_h }}
             </p>
           </div>
         </div>
@@ -40,12 +40,12 @@
                *ngIf="activeDistanceUnit === unit">
             <div class="column is-6">
               <p>
-                Minimum: {{ asteroid.estimated_diameter[unit].estimated_diameter_min }}
+                Minimum: {{ asteroid.data.attributes.estimated_diameter[unit].estimated_diameter_min }}
               </p>
             </div>
             <div class="column is-6">
               <p>
-                Maximum: {{ asteroid.estimated_diameter[unit].estimated_diameter_max }}
+                Maximum: {{ asteroid.data.attributes.estimated_diameter[unit].estimated_diameter_max }}
               </p>
             </div>
           </div>
@@ -65,7 +65,7 @@
                 {{ key.split('_').join(' ') | titlecase }}
               </div>
               <div class="column is-6">
-                {{ asteroid.orbital_data[key] }}
+                {{ asteroid.data.attributes.orbital_data[key] }}
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@
                 {{ key.split('_').join(' ') | titlecase }}
               </div>
               <div class="column is-6">
-                {{ asteroid.orbital_data[key] }}
+                {{ asteroid.data.attributes.orbital_data[key] }}
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@
       <div class="box">
         <p class="title is-5">Close Approaches</p>
         <ul>
-          <li *ngFor="let approach of asteroid.close_approach_data">
+          <li *ngFor="let approach of asteroid.data.attributes.close_approaches">
             <p class="title is-5">
               {{ approach.close_approach_date | date }}
             </p>
